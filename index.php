@@ -7,9 +7,11 @@
 	<body>
 		<div id="container">
 			<div id="nav">
+				navigation
 			</div>
 
 			<div id="header">
+				header
 			</div>
 
 			<div id="content">
