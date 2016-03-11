@@ -1,4 +1,7 @@
-html, body{
+*{
+	margin: 0;
+}
+html,body{
 	padding: 0;
 	margin: 0;
 }
@@ -12,20 +15,46 @@ body {
 	width: 1000px;
 	background: lightblue;
 	margin: auto;
+	/*border: 2px solid lightgrey;*/
 }
-#nav{
-	background: green;
-	height: 50px
-}
+
 #header{
 	background: black;
 	height: 100px;
+	background:  #db6d16 url(../src/header.jpg);
+}
+#header ul{
+	padding: 0;
+}
+#header li{
+	float: left;
+	padding: 0px 20px 0px 20px;
+	font-size: 20px;
+	list-style-type: none;
+}
+#header li a{
+	text-decoration: none;
+	color: blue;
+}
+/*#header li a:visited{
+	color: red;
+}*/
+#header li a:hover{
+	color: black;
+}
+#header h1{
+	padding-left: 400px;
+	padding-top: 20px;
+	font-size: 50px;
 }
 #content{
-	background: red;
+	/*background: red;*/
 	height: 500px;
 }
+
+
+
 #footer{
-	background: blue;
+	background: #F5F1F1;
 	height: 50px;
 }
