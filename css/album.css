@@ -1,0 +1,16 @@
+#content{
+	margin: 0 auto;
+}
+.album{
+	display: inline-block;
+	position: relative;
+/*float: left;*/
+	width: 240px;
+	height: 300px;
+	border: 10px solid blue;
+	margin: 30px 80px 10px 0px;
+}
+.coverPhoto{
+	width: 200px;
+	height: 280px;
+}
