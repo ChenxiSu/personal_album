@@ -32,19 +32,62 @@ h2{
 	max-height: 100%;
 }
 
-
 #mainDisplay {
+	position: relative;
 	margin-top: 10px;
 	margin: 10px auto;
+	padding-top: 20px;
+	padding-bottom: 50px;
+	/*height: 500px;*/
 }
+#leftArrow{
+	position: absolute;
+	top:50%;
+	left: 2%;
+	height: 100px;
+	vertical-align: middle;
+	float: left;
+}
+#leftArrow a{
+	width: 100%;
+	height: 100%;
+}
+#leftArrow img{
+	width: 100%;
+	height: 100%;
+}
+
+
 #mainDisplayFrame{
-	margin: 10px auto;
+	clear: both;
+	width: 80%;
+	margin: 0 auto;
+/*	height: 700px;*/
+
 }
-#mainDisplayFrame a{
+/*#mainDisplayFrame a{
 	text-align: center;
-	padding-left: 10%;
-}
+	/*padding-left: 10%;*/
+
 #mainDisplayFrame img{
+	display: block;
 	width: 80%;
 	height: 80%;
+	margin: 0 auto;
+	text-align: center;
+}
+
+#rightArrow{
+	position: absolute;
+	top: 50%;
+	right: 2%;
+	height: 100px;
+}
+#rightArrow a{
+	width: 100%;
+	height: 100%;
+}
+#rightArrow img{
+	width: 100%;
+	height: 100%;
 }

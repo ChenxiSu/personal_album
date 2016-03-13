@@ -16,6 +16,7 @@
 			</div>
 
 			<div id="content">
+				<h2>Method to contact me will go into this page</h2>
 			</div>
 
 			<div id="footer">

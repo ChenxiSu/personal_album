@@ -16,13 +16,16 @@
 				<!-- header image source: http://www.freewebheaders.com/wordpress/wp-content/gallery/water-coast/water-coast-header-47711-1024x300.jpg -->
 				<!-- generate header -->
 				<?php include('featureGeneration/header.php') ?>
-				<!-- generate navigation -->
-				<?php include('featureGeneration/nav.php'); ?>
+				<!-- generate navigation bar -->
+				<?php 
+					include('featureGeneration/nav.php'); ?>
 			</div>
 
 			<div id="content">
 			<?php
 				$rows = "";
+				$photosInfo=array();
+
 				if (isset($_GET['albumName'])) {
 					$albumName = $_GET['albumName'];
 					echo "<div>";
@@ -33,50 +36,77 @@
 					$mysqli = new mysqli(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME);
 					$sql = "Select photo.photo_name, photo.directory, photo.file_type, album_name From album_contain_photo inner join photo on album_contain_photo.photo_name=photo.photo_name where album_name ='$albumName'";
 
-					//generate a preview bar
+					//generate a preview bar of thumbnails
 					$rows = $mysqli->query($sql);
 					$rows_count = $rows->num_rows;
-					$firstRow;
+					
 					echo "<div id='thumbnailBar'>";
-					for ($i=0; $i < $rows_count; $i++) { 
-						if($i==0){
-							$firstRow = $rows->fetch_row();							
-							$src ="";
-							$src .= $firstRow[1];
-							$src .= $firstRow[0];
-							$src .= ".".$firstRow[2];
-							echo "<div class='thumbNailPhoto'>";
-							echo "<a href='#'><img src=$src /></a>";
-							echo "</div>";
+					for ($i=0; $i < $rows_count; $i++) { 					
+						$curRow = $rows->fetch_row();
+						//save database information into an array
+						array_push($photosInfo, $curRow);
+						$src ="";
+						$src .= $curRow[1];
+						$src .= $curRow[0];
+						$src .= ".".$curRow[2];
+						echo "<div class='thumbNailPhoto'>";
+						echo "<a href='?curId=$i'><img src=$src /></a>";
+						echo "</div>";
+					}
+					echo "</div>";
+
+					//generate the big photo display frame
+					$curSrc="";
+					$curId=0;
+					if(!isset($_GET['next'])){
+						//initialize the display of album to its first recorded photo
+						$curPhoto=$photosInfo[0];
+						$curSrc = $curPhoto[1].$curPhoto[0].".".$curPhoto[2];
+						showPhoto(0, $curSrc, $albumName);
+					}
+					else{
+						$next = $_GET['next'];
+						$curId = $_GET['curId'];
+						$curId+=$next;
+						if($curId<0 ){
+							//already the first one
+							$curPhoto=$photosInfo[0];
+							$curSrc = $curPhoto[1].$curPhoto[0].".".$curPhoto[2];
+							showPhoto(0, $curSrc,$albumName);
+
+						}
+						else if($curId == sizeof($photosInfo)){
+							//already the last one
+							$curPhoto=$photosInfo[$curId-1];
+							$curSrc = $curPhoto[1].$curPhoto[0].".".$curPhoto[2];
+							showPhoto($curId-1, $curSrc, $albumName);
 						}
 						else{
-							$curRow = $rows->fetch_row();
-							$src ="";
-							$src .= $curRow[1];
-							$src .= $curRow[0];
-							$src .= ".".$curRow[2];
-							echo "<div class='thumbNailPhoto'>";
-							echo "<a href='#'><img src=$src /></a>";
-							echo "</div>";
+							// show the photo of curId
+							$curPhoto = $photosInfo[$curId];
+							$curSrc = $curPhoto[1].$curPhoto[0].".".$curPhoto[2];
+							showPhoto($curId, $curSrc, $albumName);
 						}
-
 					}
-					echo "</div>";	
-
-					//generate the main big display frame
-					echo "<div id='mainDisplay'>";	
-					$src = "";
-					$src .= $firstRow[1];
-					$src .= $firstRow[0];
-					$src .= ".".$firstRow[2];
-					echo "<div id='mainDisplayFrame'>";
-					echo "<a href='#'><img src='$src'></a>";
-					echo "</div>";
-					echo "</div>";	
-
+					
 				}
-				else {
-					$albumName = "";
+				// write a showPhoto function to generate html in different situations
+				function showPhoto($thisId, $thisSrc, $albumName){
+					echo "<div id='mainDisplay'>";	
+					//left arrow
+					echo "<div id='leftArrow'>";
+					echo "<a href='?albumName=$albumName&next=-1&curId=$thisId&curNav=albums'><img src='src/leftArrow.png'></a>";
+					echo "</div>";
+					//main frame
+					echo "<div id='mainDisplayFrame'>";
+					echo "<img src='$thisSrc'>";
+					echo "</div>";
+					//right arrow
+					echo "<div id='rightArrow'>";
+					echo "<a href='?albumName=$albumName&next=1&curId=$thisId&curNav=albums'><img src='src/rightArrow.png'></a>";
+					echo "</div>";
+
+					echo "</div>";
 				}
 			?>
 

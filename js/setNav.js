@@ -4,14 +4,14 @@ var fileName = array[array.length-1];
 console.log(fileName);
 $(document).ready(function(){
 	if(fileName=="albums.php"){
-	$("#albums").css("background", "white");
+	$("#albums").addClass("navActive");//css("background", "white")
 }
 else if(fileName == "contact.php"){
-	$("#contact").css("background", "white");
+	$("#contact").addClass("navActive");
 	console.log("contact should work");
 }
 else if(fileName =="index.php"){
-	$("#about").css("background", "white");
+	$("#about").addClass("navActive");
 }
 else{
 
