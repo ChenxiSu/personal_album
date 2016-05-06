@@ -1,0 +1,194 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+
+}
+
+h2{
+	padding: 0;
+	margin: 0;
+	/*float: left;*/
+	padding-top: 15px;
+	padding-left: 20px;
+	text-align: left;
+
+}
+#container{
+}
+/*---add new photo---*/
+#add_new_photo{
+	position: relative;
+	display: inline-block;
+	height: 200px;
+	background-color: lightblue;
+	display: none;
+}
+#preview{
+	position: absolute;
+	top:50%;
+	height: 180px;
+	width: 20%;
+	margin-top: -90px;
+	margin-left: 1%;
+	background-image: url("../src/preview.jpg");
+	background-repeat: no-repeat;
+	background-size: contain;
+}
+/*#preview a img{
+	width: 100%;
+	height: 100%;
+}*/
+#uploading_form{
+	position: absolute;
+	width: 50%;
+	height: 180px;
+	margin-top: 10px;
+	margin-left: 25%;
+	background-color: white;
+}
+#uploadButton {
+	width: 70px;
+	height: 30px;
+	font-size: 20px;
+}
+#chooseFileButton{
+	width: 80%;
+	height: 30px;
+	font-size: 20px;
+	margin-bottom: 20px;
+}
+#uploading_form form label{
+	font-size: 20px;
+}
+#input_description{
+	width: 200px;
+	height: 20px;
+	font-size: 20px;
+}
+
+
+/*---whole photo display---*/
+#main_display{
+	width: 100%;
+	padding-top: 10px;
+	background-color: lightyellow;
+	min-height: 500px;
+	overflow: auto;
+}
+
+#thumbnailArea{
+	width: 70%;
+	float: left;
+	min-height: 400px;
+	background-color: lightyellow;
+	margin-top: 10px;
+	margin-bottom: 50px;
+	margin-left: 10px;
+}
+.thumbnailContainer{
+	display: inline-block;
+	width: 150px;
+	padding-right: 20px;
+	padding-left: 20px;
+	padding-top: 10px;
+	padding-bottom: 30px;
+	vertical-align: middle;
+	width: 180px;
+	height: 150px;
+	margin-bottom: 10px;
+}
+.thumbNailImg{
+	max-width: 100%;
+	max-height: 100%;
+}
+#ImgInfo{
+	position: absolute;
+	display: block;
+	margin-bottom: 100px;
+}
+.uploadTime{
+	display: none;
+}
+/*---display right bar---*/
+#right_search_bar{
+	width: 25%;
+	min-height: 250px;
+	background-color: blue;
+	float: right;
+	
+}
+/*---button style---*/
+#right_search_bar button{
+	width: 100%;
+	height: 50px;
+	border: 0;
+	background-color: lightgreen;
+	margin-bottom: 10px;
+	font-size: 20px;
+}
+#display_album_info{
+	background-color: lightblue;
+	height: 500px;
+}
+
+/*---display photo---*/
+#myModel{
+	display: none;
+	position: fixed;
+	z-index: 1;
+	width: 100%;
+	height: 100%;
+	min-height: 100px;
+	min-width: 200px;
+	left: 0;/*these two are key*/
+	top: 0;
+	/*overflow: auto;*/
+	background-color: black;
+	background-color: rgba(0,0,0,0.9);
+}
+#close{
+	color: white;
+	font-size: 40px;
+	position:absolute;
+	right: 20px;
+
+}
+#mainModel{
+	
+}
+#leftClickArea{
+	display: inline-block;
+	width: 10%;
+	height: 1000px;
+	/*background-color: red;*/
+}
+#imgFrame{
+	display: inline-block;
+	width: 80%;
+	height: 80%;
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);
+
+	background-color: rgba(255,255,255,0.8);
+}
+#rightClickArea{
+	display: inline-block;
+	width: 10%;
+	height: 1000px;
+	/*background-color: red;*/
+	float: right;
+}
+
+#curImg{
+	max-height: 100%;
+	max-width: 100%;
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	transform:translate(-50%,-50%);	
+	/*transform:translateX(-50%);*/
+}
