@@ -1,0 +1,85 @@
+*{
+	padding: 0;
+	margin: 0;
+}
+html{
+	padding: 0;
+	margin: 0;
+}
+body {
+	padding: 0;
+	margin: 0;
+	font-family: Arial, Helvetica, Verdana, Sans-serif;
+	font-size: 12px;
+	color: #666666;
+	background: #ffffff;
+}
+.navActive{
+	background-color: white;
+}
+#container{
+	width: 80%;
+	/*min-height: 100vh;*/
+	position: relative;
+	min-height: 900px;
+	background: white;
+	margin: 0 auto;
+	padding: 0;
+	/*border: 2px solid lightgrey;*/
+}
+
+#header{
+	position: relative;
+	height: 100px;
+	background:  #db6d16 url(../src/header.jpg) no-repeat;
+	background-size: cover;
+}
+#header ul{
+	position: absolute;
+	bottom: 0;
+	padding: 0;
+}
+#header li{
+	float: left;
+	padding: 0px 20px 0px 20px;
+	font-size: 20px;
+	list-style-type: none;
+}
+#header li a{
+	text-decoration: none;
+	color: blue;
+}
+/*#header li a:visited{
+	color: red;
+}*/
+#header li a:hover{
+	color: black;
+}
+#header h1{
+	position: absolute;
+	padding-left: 40%;
+	padding-top: 20px;
+	font-size: 50px;
+}
+#content{
+	margin: 0 100px 0 100px auto;
+	padding-bottom:50px;
+	padding-top: 30px;
+	min-height: 350px;
+}
+
+#footer{
+	clear: both;
+	position: relative;
+	display: block;
+	bottom: 0;
+	width: 100%;
+	background: #F5F1F1;
+	height: 50px;
+}
+#footer p{
+	padding: 5px 0 0 10px;
+	font-size: 15px;
+	line-height: 20px;
+
+}
